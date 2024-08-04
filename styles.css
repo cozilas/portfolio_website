@@ -9,23 +9,34 @@
   /* border: solid 1px red; */
 }
 :root {
-  --base: #555;
-  --base-100: #f1f1f1;
+  --base: #0e0e0e;
+  --base-100: #fcfcfc;
+  --base-200: #a5a5a5;
   --base-400: #555;
+  --base-600: #363636;
   --base-800: #000;
-  --yellow: #ffda4b;
-  --yellow-100: #fffbe6;
+
+  --yellow: #3a7adaa2;
+  --yellow-100: #8b6f00;
   --yellow-400: #ffda4b;
-  --yellow-800: #8b6f00;
+  --yellow-800: #fffbe6;
+
   --blue: #0a61ae;
-  --blue-100: #e2f8ff;
+  --blue-100: #497ca8;
   --blue-400: #61dafb;
-  --blue-800: #0a61ae;
+  --blue-800: #e2f8ff;
+}
+p {
+  color: var(--base-100);
+}
+
+h2 {
+  color: var(--base-100);
 }
 
 a {
   text-decoration: none;
-  color: var(--blue);
+  color: var (--base-100);
   &:hover {
     text-decoration: underline;
   }
@@ -67,7 +78,8 @@ header {
       margin-right: 20px;
       border-radius: 50%;
     }
-    .logo-text {
+    .logo-txt {
+      color: var(--base-100);
       flex: 1;
     }
   }
@@ -75,21 +87,44 @@ header {
   nav {
     display: flex;
     align-items: center;
+
     ul {
       display: flex;
       list-style-type: none;
-      gap: 5px;
+      gap: 10px;
+
       li {
         display: inline-block;
+
         a {
-          display: inline-block;
+          display: flex;
+
+          justify-content: center;
+          align-items: center;
           padding: 10px 20px;
-          color: var(--base);
+          color: var(--base-200);
+          background-color: var(--base-600);
+          border-radius: 10px;
+          position: relative;
+          transition: ease 0.4s all;
+
           &:hover {
-            background-color: var(--base-100);
+            background-color: var(--base-400);
             border-radius: 10px;
             text-decoration: none;
+            box-shadow: 40px 0 100px #4c00fd, -40px 0 100px #00d370;
+            height: 130%;
           }
+        }
+        a::after {
+          display: flex;
+          content: "";
+          position: absolute;
+          border-radius: 10px;
+          z-index: -1;
+          background-image: linear-gradient(to bottom right, #00ffaa, #7700d8);
+          width: 107%;
+          height: 110%;
         }
       }
     }
@@ -141,13 +176,17 @@ header {
 
   .hero-blue {
     flex: 1;
-    background-color: var(--blue-100);
+    background-image: linear-gradient(to bottom right, #18e49c, #004a86);
     border-radius: 30px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     padding: 10px;
     gap: 5px;
+    position: relative;
+    transition: ease 0.5s all;
+    box-shadow: 50px 50px 100px #4c00fd65, -40px 0 100px #00d3708f;
+    z-index: 1;
     span {
       @media (max-width: 1024px) {
         display: none;
@@ -169,16 +208,22 @@ header {
       }
     }
   }
+
   .hero-yellow {
     flex: 1;
-    background-color: var(--yellow);
+    background-image: linear-gradient(to bottom right, #00ffaa, #5812b3);
     border-radius: 30px;
     padding: 0px 30px;
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    transition: ease 0.5s all;
+    box-shadow: 40px 0 100px #4c00fd65, -40px 0 100px #00d3708f;
+
     img {
       margin-top: -60px;
+      position: relative;
+      z-index: 1;
     }
   }
 }
@@ -236,7 +281,8 @@ h1 {
 }
 
 .logos {
-  background-color: var(--base-100);
+  background-image: linear-gradient(to bottom right, #8faa932d, #6c79c46e);
+
   border-radius: 30px;
   padding: 30px 0px;
   .marquee {
@@ -271,7 +317,8 @@ h1 {
   flex-direction: column;
   .about-me-card {
     text-align: left;
-    background-color: var(--blue-100);
+    background-image: linear-gradient(to bottom right, #446358, #1688a5);
+
     border-radius: 30px;
     padding: 10px;
   }
@@ -292,10 +339,12 @@ h1 {
 
     li {
       display: block;
-      background-color: #19c75b;
+      background-image: linear-gradient(to bottom right, #446358, #1688a5);
+
       border-radius: 30px;
       transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
       height: 300px;
+      transition: ease 0.4s all;
 
       img {
         margin: 10px;
@@ -306,11 +355,17 @@ h1 {
       p {
         justify-content: flex-start;
       }
+      &:hover {
+        background-image: linear-gradient(to bottom right, #0bd38d, #1688a5);
+      }
     }
   }
 
   li.enlarged {
     height: 600px;
+
+    box-shadow: 40px 40px 100px #240079, -40px 0 100px #00d370a1;
+    background-image: linear-gradient(to bottom right, #0bd38d, #1688a5);
   }
 }
 
